@@ -3,24 +3,22 @@ package controller;
 public class SomaNumNaturalController {
 
 	public SomaNumNaturalController() {
-		super();
 		
+		super();
+
 	}
-	
-	public int SomaRec(int numBase, int numN) {
-		// Condição de Parada
-		if (numN < 0) {
+
+	public int recSoma(int quantidade) {
+		if (quantidade < 0) { // Condição de parada
 			return 0;
 		}
-		
-		/* Condição de chamada dos passos
-		 * Iteração chama numN, se numN >= 0, faz a diminuição de numN em numN -1, e leva para recursão SomaRec
-		 * se numN < 0, retorna 0 e desfaz a pilha. 
-		 */
 		else {
-			numBase = numN;
-			numN -= 1;
-			return numBase + SomaRec(numBase, numN);
+			return quantidade + recSoma(quantidade - 1);
 		}
 	}
 }
+/*
+ * Enquanto quantidade dos números naturais estiver acima ou igual a zero,
+ * recSoma continuará empilhando e diminuindo a quantidade em um. 
+ * Quando menor que zero, retorna zero e começa a desemplihar somando.
+ */
